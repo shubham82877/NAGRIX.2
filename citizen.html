@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="firebase-config.js"></script>
+<script type="module" src="citizen.js"></script>
+
+    <title>NAGRIX Citizen Portal</title>
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="citizen.css"
+    >
+</head>
+
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="brand-logo">N</div>
+
+        <div>
+            <h2>NAGRIX</h2>
+            <small>Citizen Intelligence Portal</small>
+        </div>
+    </div>
+
+    <div class="top-actions">
+        <button id="messageBtn" class="icon-btn">
+            🔔
+            <span id="messageCount">0</span>
+        </button>
+
+        <button class="profile-btn">
+            👤 Citizen
+        </button>
+
+        <button
+            class="logout-btn"
+            onclick="goHome()">
+            Exit
+        </button>
+    </div>
+
+</header>
+
+
+<main class="dashboard">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="side-title">
+            CITIZEN SERVICES
+        </div>
+
+        <button
+            class="side-link active"
+            onclick="showSection('reportSection', this)">
+            📝 Report Problem
+        </button>
+
+        <button
+            class="side-link"
+            onclick="showSection('trackSection', this)">
+            🎫 Track Complaint
+        </button>
+
+        <button
+            class="side-link"
+            onclick="openAIChat()">
+            🤖 AI Assistant
+        </button>
+
+        <button
+            class="side-link"
+            onclick="openCallAssistant()">
+            📞 AI Call
+        </button>
+
+        <button
+            class="side-link"
+            onclick="showSection('helpSection', this)">
+            ❓ Help
+        </button>
+
+        <div class="sidebar-bottom">
+
+            <div class="privacy-box">
+                <strong>🔐 Privacy</strong>
+
+                <p>
+                    Your complaint evidence and
+                    location are used only for
+                    civic issue processing.
+                </p>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <section class="content">
+
+        <!-- PAGE HEADER -->
+
+        <div class="page-header">
+
+            <div>
+                <span class="eyebrow">
+                    CITIZEN COMMAND CENTER
+                </span>
+
+                <h1>
+                    Report a Civic Problem
+                </h1>
+
+                <p>
+                    Report → Understand → Prioritize → Route → Resolve → Verify
+                </p>
+            </div>
+
+            <div class="live-status">
+                <span></span>
+                NAGRIX AI ONLINE
+            </div>
+
+        </div>
+
+
+        <!-- REPORT SECTION -->
+
+        <section
+            id="reportSection"
+            class="section-panel">
+
+            <div class="progress-bar">
+
+                <div class="progress-step active">
+                    <b>1</b>
+                    Problem
+                </div>
+
+                <div class="line"></div>
+
+                <div class="progress-step">
+                    <b>2</b>
+                    Evidence
+                </div>
+
+                <div class="line"></div>
+
+                <div class="progress-step">
+                    <b>3</b>
+                    Location
+                </div>
+
+                <div class="line"></div>
+
+                <div class="progress-step">
+                    <b>4</b>
+                    Submit
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <!-- LEFT -->
+
+                <div class="form-column">
+
+                    <div class="card">
+
+                        <div class="card-title">
+
+                            <div>
+                                <span class="step-number">
+                                    01
+                                </span>
+
+                                <div>
+                                    <h3>Choose Problem</h3>
+
+                                    <p>
+                                        What civic issue are you reporting?
+                                    </p>
+                                </div>
+                            </div>
+
+                            <button
+                                class="ai-mini"
+                                onclick="analyzeProblem()">
+                                ✨ AI Analyze
+                            </button>
+
+                        </div>
+
+
+                        <div class="problem-grid">
+
+                            <button
+                                class="problem-card"
+                                data-problem="Pothole"
+                                data-department="Roads & Infrastructure"
+                                data-priority="High"
+                                onclick="selectProblem(this)">
+
+                                <span>🕳️</span>
+                                <strong>Pothole</strong>
+                                <small>Damaged road</small>
+
+                            </button>
+
+
+                            <button
+                                class="problem-card"
+                                data-problem="Garbage"
+                                data-department="Sanitation"
+                                data-priority="High"
+                                onclick="selectProblem(this)">
+
+                                <span>🗑️</span>
+                                <strong>Garbage</strong>
+                                <small>Waste overflow</small>
+
+                            </button>
+
+
+                            <button
+                                class="problem-card"
+                                data-problem="Street Light"
+                                data-department="Electrical"
+                                data-priority="Medium"
+                                onclick="selectProblem(this)">
+
+                                <span>💡</span>
+                                <strong>Street Light</strong>
+                                <small>Light failure</small>
+
+                            </button>
+
+
+                            <button
+                                class="problem-card"
+                                data-problem="Water Leakage"
+                                data-department="Water Supply"
+                                data-priority="High"
+                                onclick="selectProblem(this)">
+
+                                <span>💧</span>
+                                <strong>Water Leakage</strong>
+                                <small>Pipe leakage</small>
+
+                            </button>
+
+
+                            <button
+                                class="problem-card"
+                                data-problem="Drainage"
+                                data-department="Drainage"
+                                data-priority="High"
+                                onclick="selectProblem(this)">
+
+                                <span>🌊</span>
+                                <strong>Drainage</strong>
+                                <small>Blocked drain</small>
+
+                            </button>
+
+
+                            <button
+                                class="problem-card"
+                                data-problem="Traffic Signal"
+                                data-department="Traffic Management"
+                                data-priority="High"
+                                onclick="selectProblem(this)">
+
+                                <span>🚦</span>
+                                <strong>Traffic Signal</strong>
+                                <small>Signal issue</small>
+
+                            </button>
+
+
+                            <button
+                                class="problem-card"
+                                data-problem="Park"
+                                data-department="Parks & Horticulture"
+                                data-priority="Low"
+                                onclick="selectProblem(this)">
+
+                                <span>🌳</span>
+                                <strong>Park</strong>
+                                <small>Park maintenance</small>
+
+                            </button>
+
+
+                            <button
+                                class="problem-card"
+                                data-problem="Other"
+                                data-department="Civic Services"
+                                data-priority="Medium"
+                                onclick="selectProblem(this)">
+
+                                <span>➕</span>
+                                <strong>Other</strong>
+                                <small>Other civic issue</small>
+
+                            </button>
+
+                        </div>
+
+
+                        <div class="selected-problem">
+
+                            <label>
+                                Selected Problem
+                            </label>
+
+                            <input
+                                id="selectedProblem"
+                                type="text"
+                                placeholder="Select a problem above"
+                                readonly
+                            >
+
+                        </div>
+
+
+                        <div class="description-box">
+
+                            <label>
+                                Describe the Problem
+                            </label>
+
+                            <textarea
+                                id="description"
+                                maxlength="500"
+                                placeholder="Explain the problem briefly..."
+                            ></textarea>
+
+                            <div class="char-count">
+                                <span id="charCount">0</span>/500
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- CAMERA -->
+
+                    <div class="card">
+
+                        <div class="card-title">
+
+                            <div>
+                                <span class="step-number">
+                                    02
+                                </span>
+
+                                <div>
+                                    <h3>Capture Evidence</h3>
+
+                                    <p>
+                                        Take a live photo using your camera.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <span class="camera-required">
+                                CAMERA REQUIRED
+                            </span>
+
+                        </div>
+
+
+                        <div class="camera-area">
+
+                            <video
+                                id="cameraVideo"
+                                autoplay
+                                playsinline>
+                            </video>
+
+                            <canvas
+                                id="photoCanvas"
+                                hidden>
+                            </canvas>
+
+                            <div
+                                id="cameraPlaceholder"
+                                class="camera-placeholder">
+
+                                <div class="camera-icon">
+                                    📷
+                                </div>
+
+                                <h4>
+                                    Camera Evidence
+                                </h4>
+
+                                <p>
+                                    Gallery upload is disabled.
+                                    Capture the issue directly.
+                                </p>
+
+                                <button
+                                    class="primary-btn"
+                                    onclick="startCamera()">
+                                    Open Camera
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="camera-controls">
+
+                            <button
+                                class="secondary-btn"
+                                onclick="startCamera()">
+                                📷 Start Camera
+                            </button>
+
+                            <button
+                                id="captureBtn"
+                                class="capture-btn"
+                                onclick="capturePhoto()"
+                                disabled>
+                                Capture Photo
+                            </button>
+
+                            <button
+                                class="secondary-btn"
+                                onclick="retakePhoto()">
+                                ↻ Retake
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            id="photoPreview"
+                            class="photo-preview">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT -->
+
+                <div class="form-column">
+
+                    <!-- LOCATION -->
+
+                    <div class="card">
+
+                        <div class="card-title">
+
+                            <div>
+                                <span class="step-number">
+                                    03
+                                </span>
+
+                                <div>
+                                    <h3>Live GPS Location</h3>
+
+                                    <p>
+                                        Your issue location will be detected automatically.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div
+                                id="gpsStatus"
+                                class="gps-status">
+                                GPS OFF
+                            </div>
+
+                        </div>
+
+
+                        <div id="map"></div>
+
+
+                        <button
+                            class="location-btn"
+                            onclick="getLocation()">
+
+                            📍 Detect My Live Location
+
+                        </button>
+
+
+                        <div class="location-details">
+
+                            <div>
+                                <label>Latitude</label>
+                                <strong id="latitude">—</strong>
+                            </div>
+
+                            <div>
+                                <label>Longitude</label>
+                                <strong id="longitude">—</strong>
+                            </div>
+
+                            <div>
+                                <label>Accuracy</label>
+                                <strong id="accuracy">—</strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="address-box">
+
+                            <label>
+                                Detected Address
+                            </label>
+
+                            <p id="address">
+                                Location not detected yet.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AI ANALYSIS -->
+
+                    <div class="card ai-analysis">
+
+                        <div class="card-title">
+
+                            <div>
+                                <span class="step-number">
+                                    AI
+                                </span>
+
+                                <div>
+                                    <h3>Civic AI Analysis</h3>
+
+                                    <p>
+                                        NAGRIX recommends the correct department.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <span class="ai-live">
+                                ● LIVE
+                            </span>
+
+                        </div>
+
+
+                        <div class="analysis-row">
+
+                            <span>
+                                Problem
+                            </span>
+
+                            <strong id="aiProblem">
+                                Not selected
+                            </strong>
+
+                        </div>
+
+
+                        <div class="analysis-row">
+
+                            <span>
+                                Department
+                            </span>
+
+                            <strong id="department">
+                                Awaiting analysis
+                            </strong>
+
+                        </div>
+
+
+                        <div class="analysis-row">
+
+                            <span>
+                                Priority
+                            </span>
+
+                            <strong
+                                id="priority"
+                                class="priority">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="ai-explanation">
+
+                            🤖 NAGRIX AI will use the selected
+                            problem and evidence to recommend
+                            the appropriate civic department.
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- COMPLAINT ID -->
+
+                    <div class="card complaint-preview">
+
+                        <div class="card-title">
+
+                            <div>
+                                <span class="step-number">
+                                    04
+                                </span>
+
+                                <div>
+                                    <h3>Complaint ID</h3>
+
+                                    <p>
+                                        Generated automatically after submission.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="complaint-id-box">
+
+                            <span>
+                                NAGRIX COMPLAINT
+                            </span>
+
+                            <strong id="complaintIdPreview">
+                                Will be generated
+                            </strong>
+
+                        </div>
+
+
+                        <button
+                            class="submit-btn"
+                            onclick="submitComplaint()">
+
+                            🚀 Submit Civic Complaint
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TRACK -->
+
+        <section
+            id="trackSection"
+            class="section-panel hidden">
+
+            <div class="card">
+
+                <span class="eyebrow">
+                    COMPLAINT TRACKING
+                </span>
+
+                <h2>
+                    Track Your Complaint
+                </h2>
+
+                <p class="muted">
+                    Enter your NAGRIX Complaint ID.
+                </p>
+
+                <div class="track-form">
+
+                    <input
+                        id="trackId"
+                        placeholder="Example: NGRX-2026-AB1234"
+                    >
+
+                    <button
+                        class="primary-btn"
+                        onclick="trackComplaint()">
+                        Track
+                    </button>
+
+                </div>
+
+                <div id="trackResult"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HELP -->
+
+        <section
+            id="helpSection"
+            class="section-panel hidden">
+
+            <div class="card">
+
+                <span class="eyebrow">
+                    HELP CENTER
+                </span>
+
+                <h2>
+                    How NAGRIX Works
+                </h2>
+
+                <div class="help-grid">
+
+                    <div>
+                        <strong>1. Report</strong>
+                        <p>
+                            Select the civic problem.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong>2. Capture</strong>
+                        <p>
+                            Take a live photo.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong>3. Locate</strong>
+                        <p>
+                            Allow GPS detection.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong>4. Route</strong>
+                        <p>
+                            AI recommends the department.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+</main>
+
+
+<!-- ================= AI CHAT ================= -->
+
+<div
+    id="chatPanel"
+    class="floating-panel chat-panel">
+
+    <div class="panel-header">
+
+        <div>
+            <strong>NAGRIX AI</strong>
+            <small>Civic Assistant</small>
+        </div>
+
+        <button onclick="closePanels()">×</button>
+
+    </div>
+
+
+    <div
+        id="chatMessages"
+        class="chat-messages">
+
+        <div class="bot-message">
+
+            👋 Hello! I am NAGRIX AI.
+
+            <br><br>
+
+            Tell me about your civic problem and
+            I will help you report it.
+
+        </div>
+
+    </div>
+
+
+    <div class="chat-input">
+
+        <input
+            id="chatInput"
+            placeholder="Ask NAGRIX AI..."
+            onkeydown="handleChatKey(event)"
+        >
+
+        <button onclick="sendChat()">
+            ➤
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= CALL ================= -->
+
+<div
+    id="callPanel"
+    class="floating-panel call-panel">
+
+    <div class="panel-header">
+
+        <div>
+            <strong>NAGRIX AI CALL</strong>
+            <small>Voice Assistance</small>
+        </div>
+
+        <button onclick="closePanels()">×</button>
+
+    </div>
+
+
+    <div class="call-content">
+
+        <div class="call-avatar">
+            🤖
+        </div>
+
+        <h3>
+            NAGRIX Civic Assistant
+        </h3>
+
+        <p id="callStatus">
+            Ready to assist you.
+        </p>
+
+        <div class="voice-wave">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <button
+            id="callButton"
+            class="call-btn"
+            onclick="startAICall()">
+
+            📞 Start AI Call
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MESSAGE PANEL ================= -->
+
+<div
+    id="messagePanel"
+    class="message-panel">
+
+    <div class="panel-header">
+
+        <strong>NAGRIX Messages</strong>
+
+        <button onclick="closeMessagePanel()">×</button>
+
+    </div>
+
+    <div id="messagesList">
+
+        <div class="empty-message">
+            No new messages.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast">
+</div>
+
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<script src="citizen.js"></script>
+
+</body>
+</html>
