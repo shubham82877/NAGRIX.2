@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NAGRIX RISE | Research, Innovation & Solution Ecosystem</title>
+
+    <link rel="stylesheet" href="rise.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     LOGIN SCREEN
+===================================================== -->
+
+<section id="loginScreen" class="login-screen">
+
+    <div class="login-card">
+
+        <div class="brand-logo">
+            <div class="logo-box">N</div>
+
+            <div>
+                <h1>NAGRIX</h1>
+                <span>RISE</span>
+            </div>
+        </div>
+
+        <div class="login-title">
+            <h2>Research, Innovation & Solution Ecosystem</h2>
+
+            <p>
+                Secure collaboration platform connecting
+                companies and university researchers.
+            </p>
+        </div>
+
+        <div class="login-tabs">
+
+            <button
+                id="companyTab"
+                class="login-tab active"
+                onclick="selectLoginType('company')">
+
+                🏢 Company
+            </button>
+
+            <button
+                id="universityTab"
+                class="login-tab"
+                onclick="selectLoginType('university')">
+
+                🎓 University
+            </button>
+
+        </div>
+
+
+        <form id="loginForm">
+
+            <label>Email / Username</label>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Enter registered email"
+                required
+            >
+
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter password"
+                required
+            >
+
+            <button
+                type="submit"
+                class="login-btn">
+
+                🔐 Secure Login
+            </button>
+
+        </form>
+
+
+        <div id="loginMessage"></div>
+
+
+        <div class="register-box">
+
+            <p>Don't have an account?</p>
+
+            <button onclick="showRegister()">
+                Create RISE Account
+            </button>
+
+        </div>
+
+        <a href="index.html" class="back-link">
+            ← Back to NAGRIX
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     REGISTER MODAL
+===================================================== -->
+
+<div
+    id="registerModal"
+    class="modal hidden">
+
+    <div class="modal-card">
+
+        <button
+            class="close-btn"
+            onclick="closeRegister()">
+
+            ×
+        </button>
+
+        <h2>Create RISE Account</h2>
+
+        <p class="modal-subtitle">
+            Register as a company or university research partner.
+        </p>
+
+
+        <form id="registerForm">
+
+            <label>Account Type</label>
+
+            <select id="registerType" required>
+
+                <option value="company">
+                    Company
+                </option>
+
+                <option value="university">
+                    University / Research Institution
+                </option>
+
+            </select>
+
+
+            <label>Organization Name</label>
+
+            <input
+                type="text"
+                id="organizationName"
+                placeholder="Organization name"
+                required
+            >
+
+
+            <label>Official Email</label>
+
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="official@email.com"
+                required
+            >
+
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Minimum 6 characters"
+                minlength="6"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="primary-btn">
+
+                Create Account
+            </button>
+
+        </form>
+
+        <div id="registerMessage"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN RISE APP
+===================================================== -->
+
+<div id="riseApp" class="hidden">
+
+    <!-- NAVBAR -->
+
+    <header class="rise-navbar">
+
+        <div class="nav-brand">
+
+            <div class="small-logo">
+                N
+            </div>
+
+            <div>
+                <strong>NAGRIX RISE</strong>
+                <small>
+                    Research • Innovation • Solution Ecosystem
+                </small>
+            </div>
+
+        </div>
+
+
+        <div class="nav-user">
+
+            <span id="navOrganization">
+                Organization
+            </span>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <button
+            class="side-item active"
+            onclick="showSection('dashboard', this)">
+
+            🏠 Dashboard
+
+        </button>
+
+
+        <button
+            id="submitIdeaMenu"
+            class="side-item"
+            onclick="showSection('submitIdea', this)">
+
+            💡 Submit Idea
+
+        </button>
+
+
+        <button
+            class="side-item"
+            onclick="showSection('ideas', this)">
+
+            🔬 Ideas & Challenges
+
+        </button>
+
+
+        <button
+            id="researchMenu"
+            class="side-item"
+            onclick="showSection('research', this)">
+
+            🎓 Research Collaboration
+
+        </button>
+
+
+        <button
+            class="side-item"
+            onclick="showSection('projects', this)">
+
+            🧪 Projects
+
+        </button>
+
+
+        <button
+            class="side-item"
+            onclick="showSection('profile', this)">
+
+            👤 Profile
+
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section
+            id="dashboard"
+            class="app-section active-section">
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        NAGRIX RISE
+                    </span>
+
+                    <h1 id="welcomeTitle">
+                        Welcome
+                    </h1>
+
+                    <p>
+                        Connect real-world industry challenges
+                        with academic research and innovation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <span>💡</span>
+
+                    <strong id="totalIdeas">
+                        0
+                    </strong>
+
+                    <small>
+                        Submitted Ideas
+                    </small>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>🔬</span>
+
+                    <strong id="researchRequests">
+                        0
+                    </strong>
+
+                    <small>
+                        Research Requests
+                    </small>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>🧪</span>
+
+                    <strong id="activeProjects">
+                        0
+                    </strong>
+
+                    <small>
+                        Active Projects
+                    </small>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>🤝</span>
+
+                    <strong id="collaborations">
+                        0
+                    </strong>
+
+                    <small>
+                        Collaborations
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- ROLE INFORMATION -->
+
+            <div
+                id="companyDashboard"
+                class="role-dashboard">
+
+                <div class="dashboard-card">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <span class="card-icon">🏢</span>
+
+                            <div>
+                                <h3>Company Innovation Space</h3>
+
+                                <p>
+                                    Share development challenges with
+                                    university researchers.
+                                </p>
+                            </div>
+                        </div>
+
+                        <button
+                            onclick="showSectionById('submitIdea')">
+
+                            + Submit Idea
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>💡 Share Your Idea</h3>
+
+                        <p>
+                            Companies can publish technology,
+                            engineering or civic innovation
+                            challenges for academic research.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>🔐 Protected Record</h3>
+
+                        <p>
+                            Each submission receives a unique
+                            RISE Idea ID and remains associated
+                            with the submitting organization.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>🎓 Find Researchers</h3>
+
+                        <p>
+                            University teams can review eligible
+                            challenges and submit research proposals.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="universityDashboard"
+                class="role-dashboard hidden">
+
+                <div class="dashboard-card">
+
+                    <div class="card-heading">
+
+                        <div>
+                            <span class="card-icon">🎓</span>
+
+                            <div>
+                                <h3>University Research Space</h3>
+
+                                <p>
+                                    Discover industry challenges and
+                                    propose research collaborations.
+                                </p>
+                            </div>
+                        </div>
+
+                        <button
+                            onclick="showSectionById('ideas')">
+
+                            🔬 Explore Ideas
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-grid">
+
+                    <div class="info-card">
+
+                        <h3>🔎 Explore Challenges</h3>
+
+                        <p>
+                            Find technology and development problems
+                            published by verified organizations.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>📄 Submit Proposal</h3>
+
+                        <p>
+                            Researchers can submit a research approach,
+                            methodology and expected outcome.
+                        </p>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>🤝 Collaboration</h3>
+
+                        <p>
+                            Build long-term research and development
+                            relationships with industry.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SUBMIT IDEA
+        ================================================== -->
+
+        <section
+            id="submitIdea"
+            class="app-section">
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        COMPANY INNOVATION
+                    </span>
+
+                    <h1>Submit Development Idea</h1>
+
+                    <p>
+                        Share a real development challenge with
+                        verified university research partners.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-card">
+
+                <form id="ideaForm">
+
+                    <div class="form-grid">
+
+                        <div>
+
+                            <label>
+                                Idea / Challenge Title
+                            </label>
+
+                            <input
+                                id="ideaTitle"
+                                type="text"
+                                placeholder="Example: Smart Waste Detection System"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Technology Domain
+                            </label>
+
+                            <select
+                                id="ideaDomain"
+                                required>
+
+                                <option value="">
+                                    Select domain
+                                </option>
+
+                                <option>
+                                    Artificial Intelligence
+                                </option>
+
+                                <option>
+                                    Robotics
+                                </option>
+
+                                <option>
+                                    IoT
+                                </option>
+
+                                <option>
+                                    Smart City
+                                </option>
+
+                                <option>
+                                    Healthcare Technology
+                                </option>
+
+                                <option>
+                                    Agriculture Technology
+                                </option>
+
+                                <option>
+                                    Clean Technology
+                                </option>
+
+                                <option>
+                                    Software Development
+                                </option>
+
+                                <option>
+                                    Hardware Development
+                                </option>
+
+                                <option>
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <label>
+                        Problem / Development Challenge
+                    </label>
+
+                    <textarea
+                        id="ideaDescription"
+                        rows="6"
+                        placeholder="Explain the problem you want researchers to study..."
+                        required></textarea>
+
+
+                    <label>
+                        Expected Research Outcome
+                    </label>
+
+                    <textarea
+                        id="ideaOutcome"
+                        rows="4"
+                        placeholder="What kind of research, prototype or solution are you expecting?"
+                        required></textarea>
+
+
+                    <div class="form-grid">
+
+                        <div>
+
+                            <label>
+                                Collaboration Type
+                            </label>
+
+                            <select id="collaborationType">
+
+                                <option>
+                                    Research Project
+                                </option>
+
+                                <option>
+                                    Prototype Development
+                                </option>
+
+                                <option>
+                                    Technology Development
+                                </option>
+
+                                <option>
+                                    Joint Innovation Project
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div>
+
+                            <label>
+                                Visibility
+                            </label>
+
+                            <select id="visibility">
+
+                                <option value="researchers">
+                                    Verified Researchers
+                                </option>
+
+                                <option value="public">
+                                    Public Challenge
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="security-note">
+
+                        🔐 <strong>RISE Collaboration Record</strong>
+
+                        <p>
+                            Your submission receives a unique RISE ID.
+                            Access is controlled through authenticated
+                            accounts and Firestore security rules.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn large">
+
+                        🚀 Submit to NAGRIX RISE
+
+                    </button>
+
+                </form>
+
+                <div id="ideaMessage"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             IDEAS
+        ================================================== -->
+
+        <section
+            id="ideas"
+            class="app-section">
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        INNOVATION MARKETPLACE
+                    </span>
+
+                    <h1>Research Challenges</h1>
+
+                    <p>
+                        Industry challenges available for
+                        research collaboration.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="ideasContainer" class="ideas-container">
+
+                <div class="empty-state">
+                    Loading ideas...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RESEARCH REQUESTS
+        ================================================== -->
+
+        <section
+            id="research"
+            class="app-section">
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        COLLABORATION
+                    </span>
+
+                    <h1>Research Collaboration</h1>
+
+                    <p>
+                        Manage research proposals and collaboration
+                        requests.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="researchContainer"
+                class="research-container">
+
+                <div class="empty-state">
+                    No collaboration requests yet.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PROJECTS
+        ================================================== -->
+
+        <section
+            id="projects"
+            class="app-section">
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        DEVELOPMENT
+                    </span>
+
+                    <h1>Research Projects</h1>
+
+                    <p>
+                        Track active research and development
+                        collaborations.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-board">
+
+                <div class="project-column">
+
+                    <h3>
+                        📝 Proposed
+                    </h3>
+
+                    <div
+                        id="proposedProjects"
+                        class="project-list">
+                    </div>
+
+                </div>
+
+
+                <div class="project-column">
+
+                    <h3>
+                        🔬 Research
+                    </h3>
+
+                    <div
+                        id="researchProjects"
+                        class="project-list">
+                    </div>
+
+                </div>
+
+
+                <div class="project-column">
+
+                    <h3>
+                        🧪 Development
+                    </h3>
+
+                    <div
+                        id="developmentProjects"
+                        class="project-list">
+                    </div>
+
+                </div>
+
+
+                <div class="project-column">
+
+                    <h3>
+                        🚀 Completed
+                    </h3>
+
+                    <div
+                        id="completedProjects"
+                        class="project-list">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PROFILE
+        ================================================== -->
+
+        <section
+            id="profile"
+            class="app-section">
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        ACCOUNT
+                    </span>
+
+                    <h1>Organization Profile</h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-avatar">
+                    🏢
+                </div>
+
+                <div>
+
+                    <h2 id="profileOrganization">
+                        Organization
+                    </h2>
+
+                    <p id="profileEmail">
+                        email
+                    </p>
+
+                    <span
+                        id="profileRole"
+                        class="role-badge">
+                        Company
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script type="module" src="rise.js"></script>
+
+</body>
+</html>
