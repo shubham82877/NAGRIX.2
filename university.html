@@ -1,0 +1,2300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>NAGRIX | University Research Portal</title>
+
+    <link rel="stylesheet" href="university.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+    <div class="brand">
+
+        <div class="brand-logo">
+            N
+        </div>
+
+        <div>
+            <h2>NAGRIX</h2>
+            <small>University Research</small>
+        </div>
+
+    </div>
+
+
+    <nav>
+
+        <button
+            class="nav-item active"
+            data-section="overview"
+        >
+            🏠
+            <span>Research Overview</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-section="problems"
+        >
+            🔎
+            <span>Civic Problems</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-section="matching"
+        >
+            🤖
+            <span>AI Matching</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-section="projects"
+        >
+            🧪
+            <span>Research Projects</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-section="team"
+        >
+            👨‍🎓
+            <span>Research Team</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-section="proposals"
+        >
+            📄
+            <span>Proposals</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-section="pilot"
+        >
+            🚀
+            <span>Pilot Testing</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-section="results"
+        >
+            📊
+            <span>Research Results</span>
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-section="collaboration"
+        >
+            🤝
+            <span>Officer Collaboration</span>
+        </button>
+
+    </nav>
+
+
+    <button
+        class="logout-btn"
+        onclick="logoutUniversity()"
+    >
+        🚪 Logout
+    </button>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main">
+
+
+<!-- =====================================================
+     TOPBAR
+===================================================== -->
+
+<header class="topbar">
+
+    <div>
+
+        <h2 id="pageTitle">
+            University Research Command Center
+        </h2>
+
+        <p>
+            NAGRIX Civic Problem Research & Innovation Network
+        </p>
+
+    </div>
+
+
+    <div class="university-profile">
+
+        <div class="notification">
+            🔔
+            <span>4</span>
+        </div>
+
+        <div class="profile-info">
+
+            <strong>
+                ABC Institute of Technology
+            </strong>
+
+            <small>
+                Research Partner
+            </small>
+
+        </div>
+
+        <div class="avatar">
+            AI
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     OVERVIEW
+===================================================== -->
+
+<section
+    id="overview"
+    class="content-section active-section"
+>
+
+    <div class="hero">
+
+        <div>
+
+            <span class="online">
+                ● NAGRIX RESEARCH NETWORK ACTIVE
+            </span>
+
+            <h1>
+                Solve Real Civic Problems
+                Through Research
+            </h1>
+
+            <p>
+                NAGRIX connects verified government problems
+                with universities that can research, design
+                and develop practical solutions.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="showSection('problems')"
+                >
+                    Explore Civic Problems →
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="showSection('matching')"
+                >
+                    AI University Matching
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="research-core">
+
+            <div class="core-circle">
+
+                <strong>AI</strong>
+
+                <span>
+                    MATCH
+                </span>
+
+            </div>
+
+            <small>
+                Civic Research Intelligence
+            </small>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- STATS -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <span>🔎</span>
+
+            <div>
+
+                <small>
+                    Verified Problems
+                </small>
+
+                <h2>
+                    128
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>🧪</span>
+
+            <div>
+
+                <small>
+                    Active Research
+                </small>
+
+                <h2>
+                    24
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>🎓</span>
+
+            <div>
+
+                <small>
+                    Researchers
+                </small>
+
+                <h2>
+                    86
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card success">
+
+            <span>🚀</span>
+
+            <div>
+
+                <small>
+                    Solutions Piloted
+                </small>
+
+                <h2>
+                    17
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RESEARCH PIPELINE -->
+
+    <div class="panel">
+
+        <div class="panel-header">
+
+            <h2>
+                NAGRIX Research Pipeline
+            </h2>
+
+            <p>
+                From verified civic problem to real-world solution
+            </p>
+
+        </div>
+
+
+        <div class="pipeline">
+
+            <div class="pipeline-step active">
+
+                <span>01</span>
+
+                <strong>
+                    Problem
+                </strong>
+
+                <small>
+                    Officer Verified
+                </small>
+
+            </div>
+
+
+            <div class="pipeline-line"></div>
+
+
+            <div class="pipeline-step active">
+
+                <span>02</span>
+
+                <strong>
+                    Match
+                </strong>
+
+                <small>
+                    AI University
+                </small>
+
+            </div>
+
+
+            <div class="pipeline-line"></div>
+
+
+            <div class="pipeline-step active">
+
+                <span>03</span>
+
+                <strong>
+                    Research
+                </strong>
+
+                <small>
+                    University
+                </small>
+
+            </div>
+
+
+            <div class="pipeline-line"></div>
+
+
+            <div class="pipeline-step">
+
+                <span>04</span>
+
+                <strong>
+                    Prototype
+                </strong>
+
+                <small>
+                    Solution
+                </small>
+
+            </div>
+
+
+            <div class="pipeline-line"></div>
+
+
+            <div class="pipeline-step">
+
+                <span>05</span>
+
+                <strong>
+                    Pilot
+                </strong>
+
+                <small>
+                    Field Test
+                </small>
+
+            </div>
+
+
+            <div class="pipeline-line"></div>
+
+
+            <div class="pipeline-step">
+
+                <span>06</span>
+
+                <strong>
+                    Verify
+                </strong>
+
+                <small>
+                    Officer
+                </small>
+
+            </div>
+
+
+            <div class="pipeline-line"></div>
+
+
+            <div class="pipeline-step">
+
+                <span>07</span>
+
+                <strong>
+                    Deploy
+                </strong>
+
+                <small>
+                    Civic Solution
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- RECENT PROBLEMS -->
+
+    <div class="grid-two">
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Recently Matched Problems
+                </h2>
+
+                <p>
+                    Problems recommended by NAGRIX AI
+                </p>
+
+            </div>
+
+
+            <div class="problem-list">
+
+                <div class="problem-item">
+
+                    <div class="problem-icon">
+                        💧
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Urban Waterlogging
+                        </strong>
+
+                        <small>
+                            Civil Engineering • 94% Match
+                        </small>
+
+                    </div>
+
+                    <span class="status high">
+                        HIGH
+                    </span>
+
+                </div>
+
+
+                <div class="problem-item">
+
+                    <div class="problem-icon">
+                        🗑️
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Smart Waste Monitoring
+                        </strong>
+
+                        <small>
+                            IoT / AI • 91% Match
+                        </small>
+
+                    </div>
+
+                    <span class="status medium">
+                        MEDIUM
+                    </span>
+
+                </div>
+
+
+                <div class="problem-item">
+
+                    <div class="problem-icon">
+                        💡
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Street Light Failure
+                        </strong>
+
+                        <small>
+                            Electrical Engineering • 89% Match
+                        </small>
+
+                    </div>
+
+                    <span class="status medium">
+                        MEDIUM
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel ai-panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    🤖 NAGRIX AI
+                </h2>
+
+                <p>
+                    Research intelligence
+                </p>
+
+            </div>
+
+            <div class="ai-score">
+                94%
+            </div>
+
+            <strong>
+                Research Compatibility
+            </strong>
+
+            <div class="progress">
+
+                <div style="width:94%"></div>
+
+            </div>
+
+            <p class="muted">
+                Your university has strong research
+                capability for current civic problems.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CIVIC PROBLEMS
+===================================================== -->
+
+<section
+    id="problems"
+    class="content-section"
+>
+
+    <div class="section-title">
+
+        <div>
+
+            <h1>
+                Verified Civic Problems
+            </h1>
+
+            <p>
+                Problems submitted and verified by NAGRIX officers.
+            </p>
+
+        </div>
+
+        <button
+            class="primary-btn"
+            onclick="refreshProblems()"
+        >
+            ↻ Refresh
+        </button>
+
+    </div>
+
+
+
+    <div class="filter-bar">
+
+        <input
+            type="text"
+            id="problemSearch"
+            placeholder="Search problem..."
+            oninput="searchProblems()"
+        >
+
+
+        <select id="problemCategory">
+
+            <option value="all">
+                All Categories
+            </option>
+
+            <option value="water">
+                Water & Drainage
+            </option>
+
+            <option value="waste">
+                Waste Management
+            </option>
+
+            <option value="roads">
+                Roads
+            </option>
+
+            <option value="electricity">
+                Electricity
+            </option>
+
+            <option value="environment">
+                Environment
+            </option>
+
+        </select>
+
+    </div>
+
+
+
+    <div class="problem-cards">
+
+
+        <!-- PROBLEM 1 -->
+
+        <article
+            class="research-card"
+            data-category="water"
+        >
+
+            <div class="card-top">
+
+                <span class="problem-number">
+                    NGRX-2026-001245
+                </span>
+
+                <span class="status high">
+                    HIGH PRIORITY
+                </span>
+
+            </div>
+
+
+            <h2>
+                Urban Waterlogging
+            </h2>
+
+            <p>
+                Repeated water accumulation during rainfall
+                is affecting residential roads and public movement.
+            </p>
+
+
+            <div class="problem-meta">
+
+                <span>
+                    📍 XYZ Municipal Zone
+                </span>
+
+                <span>
+                    🏢 Municipal Engineering
+                </span>
+
+                <span>
+                    👮 Officer Verified
+                </span>
+
+            </div>
+
+
+            <div class="evidence-row">
+
+                <span>
+                    📷 18 Evidence Photos
+                </span>
+
+                <span>
+                    📊 47 Related Complaints
+                </span>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="viewProblem('NGRX-2026-001245')"
+            >
+                View Research Opportunity →
+            </button>
+
+        </article>
+
+
+
+        <!-- PROBLEM 2 -->
+
+        <article
+            class="research-card"
+            data-category="waste"
+        >
+
+            <div class="card-top">
+
+                <span class="problem-number">
+                    NGRX-2026-001198
+                </span>
+
+                <span class="status medium">
+                    MEDIUM
+                </span>
+
+            </div>
+
+
+            <h2>
+                Smart Waste Monitoring
+            </h2>
+
+            <p>
+                Garbage bins frequently overflow due to
+                inefficient collection scheduling.
+            </p>
+
+
+            <div class="problem-meta">
+
+                <span>
+                    📍 Central Ward
+                </span>
+
+                <span>
+                    🏢 Sanitation Department
+                </span>
+
+                <span>
+                    👮 Officer Verified
+                </span>
+
+            </div>
+
+
+            <div class="evidence-row">
+
+                <span>
+                    📷 23 Evidence Photos
+                </span>
+
+                <span>
+                    📊 61 Related Complaints
+                </span>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="viewProblem('NGRX-2026-001198')"
+            >
+                View Research Opportunity →
+            </button>
+
+        </article>
+
+
+
+        <!-- PROBLEM 3 -->
+
+        <article
+            class="research-card"
+            data-category="electricity"
+        >
+
+            <div class="card-top">
+
+                <span class="problem-number">
+                    NGRX-2026-001176
+                </span>
+
+                <span class="status medium">
+                    MEDIUM
+                </span>
+
+            </div>
+
+
+            <h2>
+                Smart Street Light Failure Detection
+            </h2>
+
+            <p>
+                Repeated street light failures are creating
+                safety and visibility problems.
+            </p>
+
+
+            <div class="problem-meta">
+
+                <span>
+                    📍 Sector 14
+                </span>
+
+                <span>
+                    🏢 Electrical Department
+                </span>
+
+                <span>
+                    👮 Officer Verified
+                </span>
+
+            </div>
+
+
+            <div class="evidence-row">
+
+                <span>
+                    📷 12 Evidence Photos
+                </span>
+
+                <span>
+                    📊 29 Related Complaints
+                </span>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="viewProblem('NGRX-2026-001176')"
+            >
+                View Research Opportunity →
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     AI MATCHING
+===================================================== -->
+
+<section
+    id="matching"
+    class="content-section"
+>
+
+    <div class="section-title">
+
+        <div>
+
+            <h1>
+                AI University Matching
+            </h1>
+
+            <p>
+                NAGRIX identifies the best research department
+                for each verified civic problem.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="matching-layout">
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Selected Problem
+                </h2>
+
+                <p>
+                    NGRX-2026-001245
+                </p>
+
+            </div>
+
+
+            <div class="selected-problem">
+
+                <div class="large-icon">
+                    💧
+                </div>
+
+                <h2>
+                    Urban Waterlogging
+                </h2>
+
+                <p>
+                    Recurring waterlogging in XYZ Municipal Zone.
+                </p>
+
+            </div>
+
+
+            <button
+                class="primary-btn full"
+                onclick="runAIMatching()"
+            >
+                🤖 Run AI Matching
+            </button>
+
+        </div>
+
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Recommended Research Areas
+                </h2>
+
+            </div>
+
+
+            <div class="match-item">
+
+                <span>
+                    🏗️
+                </span>
+
+                <div>
+
+                    <strong>
+                        Civil Engineering
+                    </strong>
+
+                    <small>
+                        96% compatibility
+                    </small>
+
+                </div>
+
+                <b>
+                    96%
+                </b>
+
+            </div>
+
+
+            <div class="match-item">
+
+                <span>
+                    🌱
+                </span>
+
+                <div>
+
+                    <strong>
+                        Environmental Engineering
+                    </strong>
+
+                    <small>
+                        93% compatibility
+                    </small>
+
+                </div>
+
+                <b>
+                    93%
+                </b>
+
+            </div>
+
+
+            <div class="match-item">
+
+                <span>
+                    🏙️
+                </span>
+
+                <div>
+
+                    <strong>
+                        Urban Planning
+                    </strong>
+
+                    <small>
+                        88% compatibility
+                    </small>
+
+                </div>
+
+                <b>
+                    88%
+                </b>
+
+            </div>
+
+
+            <div class="match-item">
+
+                <span>
+                    📡
+                </span>
+
+                <div>
+
+                    <strong>
+                        IoT & Smart Systems
+                    </strong>
+
+                    <small>
+                        82% compatibility
+                    </small>
+
+                </div>
+
+                <b>
+                    82%
+                </b>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel recommended-university">
+
+        <div class="panel-header">
+
+            <h2>
+                🎓 Recommended University
+            </h2>
+
+            <p>
+                Based on problem type, research capability
+                and available expertise.
+            </p>
+
+        </div>
+
+
+        <div class="university-result">
+
+            <div class="university-logo">
+                AI
+            </div>
+
+            <div>
+
+                <h2>
+                    ABC Institute of Technology
+                </h2>
+
+                <p>
+                    Department of Civil Engineering
+                </p>
+
+                <div class="tags">
+
+                    <span>
+                        Smart Cities
+                    </span>
+
+                    <span>
+                        Water Management
+                    </span>
+
+                    <span>
+                        IoT
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="match-score">
+
+                <strong>
+                    94%
+                </strong>
+
+                <small>
+                    Match
+                </small>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="acceptResearchProject()"
+            >
+                Accept Research Project
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESEARCH PROJECTS
+===================================================== -->
+
+<section
+    id="projects"
+    class="content-section"
+>
+
+    <div class="section-title">
+
+        <div>
+
+            <h1>
+                Research Projects
+            </h1>
+
+            <p>
+                Active university research projects.
+            </p>
+
+        </div>
+
+        <button
+            class="primary-btn"
+            onclick="createResearchProject()"
+        >
+            + New Research Project
+        </button>
+
+    </div>
+
+
+    <div class="project-grid">
+
+        <div class="project-card">
+
+            <span class="research-status">
+                ACTIVE RESEARCH
+            </span>
+
+            <h2>
+                Smart Drainage Monitoring
+            </h2>
+
+            <p>
+                Development of IoT-based water-level monitoring
+                for recurring urban waterlogging.
+            </p>
+
+            <div class="project-info">
+
+                <span>
+                    NGRX-2026-001245
+                </span>
+
+                <span>
+                    68% Complete
+                </span>
+
+            </div>
+
+            <div class="progress">
+                <div style="width:68%"></div>
+            </div>
+
+            <button
+                class="secondary-btn full"
+                onclick="openProjectDetails()"
+            >
+                Open Research Project
+            </button>
+
+        </div>
+
+
+        <div class="project-card">
+
+            <span class="research-status">
+                PROTOTYPE
+            </span>
+
+            <h2>
+                AI Waste Collection Predictor
+            </h2>
+
+            <p>
+                Predicting garbage overflow and optimizing
+                municipal collection routes.
+            </p>
+
+            <div class="project-info">
+
+                <span>
+                    NGRX-2026-001198
+                </span>
+
+                <span>
+                    82% Complete
+                </span>
+
+            </div>
+
+            <div class="progress">
+                <div style="width:82%"></div>
+            </div>
+
+            <button
+                class="secondary-btn full"
+                onclick="openProjectDetails()"
+            >
+                Open Research Project
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESEARCH TEAM
+===================================================== -->
+
+<section
+    id="team"
+    class="content-section"
+>
+
+    <div class="section-title">
+
+        <div>
+
+            <h1>
+                Research Team
+            </h1>
+
+            <p>
+                Faculty, researchers and students working
+                on NAGRIX civic challenges.
+            </p>
+
+        </div>
+
+        <button
+            class="primary-btn"
+            onclick="addResearcher()"
+        >
+            + Add Researcher
+        </button>
+
+    </div>
+
+
+    <div class="team-grid">
+
+        <div class="team-card">
+
+            <div class="team-avatar">
+                DR
+            </div>
+
+            <h3>
+                Dr. Research Lead
+            </h3>
+
+            <p>
+                Principal Investigator
+            </p>
+
+            <span>
+                Civil Engineering
+            </span>
+
+        </div>
+
+
+        <div class="team-card">
+
+            <div class="team-avatar">
+                RS
+            </div>
+
+            <h3>
+                Research Scholar
+            </h3>
+
+            <p>
+                Project Researcher
+            </p>
+
+            <span>
+                Smart Cities
+            </span>
+
+        </div>
+
+
+        <div class="team-card">
+
+            <div class="team-avatar">
+                AI
+            </div>
+
+            <h3>
+                AI Research Student
+            </h3>
+
+            <p>
+                Data & AI Research
+            </p>
+
+            <span>
+                Artificial Intelligence
+            </span>
+
+        </div>
+
+
+        <div class="team-card">
+
+            <div class="team-avatar">
+                IO
+            </div>
+
+            <h3>
+                IoT Student
+            </h3>
+
+            <p>
+                Hardware Research
+            </p>
+
+            <span>
+                IoT Systems
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROPOSALS
+===================================================== -->
+
+<section
+    id="proposals"
+    class="content-section"
+>
+
+    <div class="section-title">
+
+        <div>
+
+            <h1>
+                Research Proposal
+            </h1>
+
+            <p>
+                Submit a solution proposal for a verified
+                civic problem.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel proposal-panel">
+
+        <form id="researchProposalForm">
+
+            <label>
+                Problem ID
+            </label>
+
+            <input
+                type="text"
+                value="NGRX-2026-001245"
+                readonly
+            >
+
+
+            <label>
+                Research Title
+            </label>
+
+            <input
+                type="text"
+                id="researchTitle"
+                placeholder="Enter research title"
+                required
+            >
+
+
+            <label>
+                Research Department
+            </label>
+
+            <select
+                id="researchDepartment"
+                required
+            >
+
+                <option value="">
+                    Select Department
+                </option>
+
+                <option>
+                    Civil Engineering
+                </option>
+
+                <option>
+                    Environmental Engineering
+                </option>
+
+                <option>
+                    Computer Science & AI
+                </option>
+
+                <option>
+                    Electrical Engineering
+                </option>
+
+                <option>
+                    Mechanical Engineering
+                </option>
+
+                <option>
+                    Urban Planning
+                </option>
+
+            </select>
+
+
+            <label>
+                Problem Statement
+            </label>
+
+            <textarea
+                id="problemStatement"
+                placeholder="Describe the civic problem..."
+                required
+            ></textarea>
+
+
+            <label>
+                Proposed Solution
+            </label>
+
+            <textarea
+                id="proposedSolution"
+                placeholder="Describe your proposed solution..."
+                required
+            ></textarea>
+
+
+            <label>
+                Expected Impact
+            </label>
+
+            <textarea
+                id="expectedImpact"
+                placeholder="Explain expected civic impact..."
+                required
+            ></textarea>
+
+
+            <div class="form-row">
+
+                <div>
+
+                    <label>
+                        Estimated Duration
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="e.g. 6 Months"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Estimated Budget
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="e.g. ₹2,00,000"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-btn"
+            >
+                Submit Research Proposal →
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PILOT TESTING
+===================================================== -->
+
+<section
+    id="pilot"
+    class="content-section"
+>
+
+    <div class="section-title">
+
+        <div>
+
+            <h1>
+                Pilot Testing
+            </h1>
+
+            <p>
+                Test university-developed solutions
+                in the real civic environment.
+            </p>
+
+        </div>
+
+        <span class="status pending">
+            PILOT IN PREPARATION
+        </span>
+
+    </div>
+
+
+    <div class="pilot-layout">
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Smart Drainage Monitoring System
+                </h2>
+
+                <p>
+                    NGRX-2026-001245
+                </p>
+
+            </div>
+
+
+            <div class="pilot-timeline">
+
+                <div class="timeline-item completed">
+
+                    <span>✓</span>
+
+                    <div>
+
+                        <strong>
+                            Research Completed
+                        </strong>
+
+                        <small>
+                            University research approved
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item completed">
+
+                    <span>✓</span>
+
+                    <div>
+
+                        <strong>
+                            Prototype Developed
+                        </strong>
+
+                        <small>
+                            IoT prototype ready
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item active">
+
+                    <span>03</span>
+
+                    <div>
+
+                        <strong>
+                            Field Pilot
+                        </strong>
+
+                        <small>
+                            Awaiting officer coordination
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <span>04</span>
+
+                    <div>
+
+                        <strong>
+                            Officer Verification
+                        </strong>
+
+                        <small>
+                            Ground performance verification
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <span>05</span>
+
+                    <div>
+
+                        <strong>
+                            Deployment
+                        </strong>
+
+                        <small>
+                            City-wide implementation
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <h2>
+                    Officer Collaboration
+                </h2>
+
+                <p>
+                    Municipal officer assigned to pilot
+                </p>
+
+            </div>
+
+
+            <div class="officer-box">
+
+                <div class="officer-avatar">
+                    MO
+                </div>
+
+                <div>
+
+                    <strong>
+                        Municipal Officer
+                    </strong>
+
+                    <small>
+                        Municipal Engineering Department
+                    </small>
+
+                    <span>
+                        ● Available for coordination
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-btn full"
+                onclick="requestPilotApproval()"
+            >
+                Request Pilot Approval
+            </button>
+
+
+            <button
+                class="secondary-btn full"
+                onclick="contactOfficer()"
+            >
+                💬 Contact Officer
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RESULTS
+===================================================== -->
+
+<section
+    id="results"
+    class="content-section"
+>
+
+    <div class="section-title">
+
+        <div>
+
+            <h1>
+                Research Results
+            </h1>
+
+            <p>
+                Measure the impact of university-developed solutions.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="result-grid">
+
+        <div class="result-card">
+
+            <span>
+                Problem Reduction
+            </span>
+
+            <strong>
+                72%
+            </strong>
+
+            <div class="progress">
+
+                <div style="width:72%"></div>
+
+            </div>
+
+        </div>
+
+
+        <div class="result-card">
+
+            <span>
+                Estimated Cost Saving
+            </span>
+
+            <strong>
+                ₹4.8L
+            </strong>
+
+            <small>
+                Per year
+            </small>
+
+        </div>
+
+
+        <div class="result-card">
+
+            <span>
+                Citizen Impact
+            </span>
+
+            <strong>
+                8,400+
+            </strong>
+
+            <small>
+                Citizens benefited
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <div class="panel-header">
+
+            <h2>
+                Final Research Outcome
+            </h2>
+
+        </div>
+
+
+        <div class="outcome-box">
+
+            <div>
+                <strong>
+                    Solution
+                </strong>
+
+                <p>
+                    Smart Drainage Monitoring System
+                </p>
+            </div>
+
+
+            <div>
+                <strong>
+                    Research Status
+                </strong>
+
+                <p>
+                    Field Validated
+                </p>
+            </div>
+
+
+            <div>
+                <strong>
+                    Officer Verification
+                </strong>
+
+                <p>
+                    ✓ Verified
+                </p>
+            </div>
+
+
+            <div>
+                <strong>
+                    Deployment Recommendation
+                </strong>
+
+                <p>
+                    Recommended
+                </p>
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="publishSolution()"
+        >
+            🚀 Publish to NAGRIX Innovation Hub
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OFFICER COLLABORATION
+===================================================== -->
+
+<section
+    id="collaboration"
+    class="content-section"
+>
+
+    <div class="section-title">
+
+        <div>
+
+            <h1>
+                Officer ↔ University Collaboration
+            </h1>
+
+            <p>
+                Direct coordination between ground officers
+                and university researchers.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="collaboration-flow">
+
+        <div class="collab-step">
+
+            <div class="collab-icon">
+                👮
+            </div>
+
+            <h3>
+                Officer
+            </h3>
+
+            <p>
+                Identifies and verifies the real-world problem.
+            </p>
+
+        </div>
+
+
+        <div class="collab-arrow">
+            →
+        </div>
+
+
+        <div class="collab-step">
+
+            <div class="collab-icon">
+                🤖
+            </div>
+
+            <h3>
+                NAGRIX AI
+            </h3>
+
+            <p>
+                Finds the most suitable research department.
+            </p>
+
+        </div>
+
+
+        <div class="collab-arrow">
+            →
+        </div>
+
+
+        <div class="collab-step">
+
+            <div class="collab-icon">
+                🎓
+            </div>
+
+            <h3>
+                University
+            </h3>
+
+            <p>
+                Researches the problem and develops a solution.
+            </p>
+
+        </div>
+
+
+        <div class="collab-arrow">
+            →
+        </div>
+
+
+        <div class="collab-step">
+
+            <div class="collab-icon">
+                🚀
+            </div>
+
+            <h3>
+                Pilot
+            </h3>
+
+            <p>
+                Solution is tested in the real environment.
+            </p>
+
+        </div>
+
+
+        <div class="collab-arrow">
+            →
+        </div>
+
+
+        <div class="collab-step">
+
+            <div class="collab-icon">
+                🏙️
+            </div>
+
+            <h3>
+                Civic Deployment
+            </h3>
+
+            <p>
+                Successful solution can be implemented at scale.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel collaboration-panel">
+
+        <h2>
+            Current Collaboration
+        </h2>
+
+        <div class="collaboration-details">
+
+            <div>
+
+                <span>
+                    Civic Problem
+                </span>
+
+                <strong>
+                    Urban Waterlogging
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Officer
+                </span>
+
+                <strong>
+                    Municipal Engineering Officer
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    University
+                </span>
+
+                <strong>
+                    ABC Institute of Technology
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Research Department
+                </span>
+
+                <strong>
+                    Civil Engineering
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Research Status
+                </span>
+
+                <strong class="green-text">
+                    Prototype Ready
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- =====================================================
+     PROBLEM MODAL
+===================================================== -->
+
+<div
+    id="problemModal"
+    class="modal hidden"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeProblemModal()"
+        >
+            ×
+        </button>
+
+
+        <span class="research-status">
+            VERIFIED CIVIC RESEARCH OPPORTUNITY
+        </span>
+
+
+        <h2 id="modalProblemTitle">
+            Urban Waterlogging
+        </h2>
+
+
+        <p>
+            This problem has been verified by the concerned
+            NAGRIX officer and is available for university research.
+        </p>
+
+
+        <div class="modal-details">
+
+            <div>
+                <span>Problem ID</span>
+                <strong id="modalProblemId">
+                    NGRX-2026-001245
+                </strong>
+            </div>
+
+
+            <div>
+                <span>Department</span>
+                <strong>
+                    Municipal Engineering
+                </strong>
+            </div>
+
+
+            <div>
+                <span>Location</span>
+                <strong>
+                    XYZ Municipal Zone
+                </strong>
+            </div>
+
+
+            <div>
+                <span>Related Complaints</span>
+                <strong>
+                    47
+                </strong>
+            </div>
+
+
+            <div>
+                <span>Officer Verification</span>
+                <strong class="green-text">
+                    ✓ VERIFIED
+                </strong>
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-btn full"
+            onclick="selectProblemForResearch()"
+        >
+            🤖 Match With University Research →
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="university.js"></script>
+
+</body>
+</html>
