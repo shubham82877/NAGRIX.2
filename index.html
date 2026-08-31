@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script type="module" src="firebase-config.js"></script>
+<script type="module" src="university.js"></script>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NAGRIX | Civic Intelligence Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+
+        <span class="logo-icon">N</span>
+
+        <div>
+            <h2>NAGRIX</h2>
+            <small>Civic Intelligence</small>
+        </div>
+
+    </div>
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#portals">Portals</a>
+
+        <a href="#workflow">How It Works</a>
+
+        <a href="#innovation">Innovation Hub</a>
+
+    </nav>
+
+    <button
+        class="nav-btn"
+        onclick="scrollToPortals()">
+
+        Get Started
+
+    </button>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    id="home"
+    class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            AI POWERED CIVIC INTELLIGENCE
+        </div>
+
+        <h1>
+            Transforming
+            <span>Civic Problems</span>
+            Into Smart Solutions
+        </h1>
+
+        <p>
+            NAGRIX connects citizens, government officers,
+            administrators, universities and industries to
+            identify, solve and research real-world civic problems.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="primary-btn"
+                onclick="openCitizen()">
+
+                Report a Problem
+
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="scrollToPortals()">
+
+                Explore NAGRIX
+
+            </button>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div>
+                <strong>AI</strong>
+                <span>Smart Routing</span>
+            </div>
+
+            <div>
+                <strong>GPS</strong>
+                <span>Live Location</span>
+            </div>
+
+            <div>
+                <strong>24/7</strong>
+                <span>Civic Intelligence</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AI VISUAL -->
+
+    <div class="hero-visual">
+
+        <div class="glow"></div>
+
+        <div class="ai-card">
+
+            <div class="ai-header">
+
+                <div class="status-dot"></div>
+
+                <span>
+                    NAGRIX AI CORE
+                </span>
+
+            </div>
+
+            <div class="ai-circle">
+
+                <div class="ai-inner">
+                    AI
+                </div>
+
+            </div>
+
+            <div class="ai-status">
+
+                <span>●</span>
+
+                Civic Intelligence Active
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PORTALS
+===================================================== -->
+
+<section
+    id="portals"
+    class="portals-section">
+
+    <div class="section-heading">
+
+        <span>
+            ACCESS NAGRIX
+        </span>
+
+        <h2>
+            Choose Your
+            <span>Portal</span>
+        </h2>
+
+        <p>
+            Every stakeholder has a dedicated environment
+            to participate in civic problem solving.
+        </p>
+
+    </div>
+
+
+    <div class="portal-grid">
+
+
+        <!-- =================================================
+             CITIZEN PORTAL
+        ================================================== -->
+
+        <div class="portal-card citizen-card">
+
+            <div class="portal-icon">
+                👥
+            </div>
+
+            <div class="portal-tag">
+                PUBLIC ACCESS
+            </div>
+
+            <h3>
+                Citizen Portal
+            </h3>
+
+            <p>
+                Report civic problems using camera,
+                GPS and AI-powered assistance.
+            </p>
+
+            <ul>
+
+                <li>
+                    📷 Camera-only evidence
+                </li>
+
+                <li>
+                    📍 Live GPS detection
+                </li>
+
+                <li>
+                    🤖 AI complaint assistant
+                </li>
+
+                <li>
+                    🎫 Complaint ID
+                </li>
+
+                <li>
+                    📊 Complaint tracking
+                </li>
+
+            </ul>
+
+            <button
+                class="portal-btn"
+                onclick="openCitizen()">
+
+                Enter Citizen Portal →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             OFFICER PORTAL
+        ================================================== -->
+
+        <div class="portal-card officer-card">
+
+            <div class="portal-icon">
+                🛡️
+            </div>
+
+            <div class="portal-tag">
+                OFFICIAL ACCESS
+            </div>
+
+            <h3>
+                Officer Portal
+            </h3>
+
+            <p>
+                Receive assigned complaints and manage
+                civic issue resolution.
+            </p>
+
+            <ul>
+
+                <li>
+                    🔐 Officer Login
+                </li>
+
+                <li>
+                    📋 Assigned Complaints
+                </li>
+
+                <li>
+                    📍 GPS Address
+                </li>
+
+                <li>
+                    📷 Citizen Evidence
+                </li>
+
+                <li>
+                    📈 Performance Analytics
+                </li>
+
+            </ul>
+
+            <button
+                class="portal-btn"
+                onclick="openOfficer()">
+
+                Official Login →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ADMIN PORTAL
+        ================================================== -->
+
+        <div class="portal-card admin-card">
+
+            <div class="portal-icon">
+                ⚙️
+            </div>
+
+            <div class="portal-tag">
+                ADMIN ACCESS
+            </div>
+
+            <h3>
+                Admin Command Center
+            </h3>
+
+            <p>
+                Monitor complete NAGRIX operations,
+                officers and civic performance.
+            </p>
+
+            <ul>
+
+                <li>
+                    👨‍💼 Officer Management
+                </li>
+
+                <li>
+                    📊 Operation Analytics
+                </li>
+
+                <li>
+                    📈 Performance Graphs
+                </li>
+
+                <li>
+                    🏢 Department Monitoring
+                </li>
+
+                <li>
+                    🎯 Resolution Tracking
+                </li>
+
+            </ul>
+
+            <button
+                class="portal-btn"
+                onclick="openAdmin()">
+
+                Admin Login →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             UNIVERSITY PORTAL
+        ================================================== -->
+
+        <div class="portal-card university-card">
+            <a href="/university.html"</a>
+
+            <div class="portal-icon">
+                🎓
+            </div>
+
+            <div class="portal-tag">
+                RESEARCH PARTNER
+            </div>
+
+            <h3>
+                University Research Portal
+            </h3>
+
+            <p>
+                Universities can study real civic problems,
+                conduct research and develop evidence-based
+                solutions.
+            </p>
+
+            <ul>
+
+                <li>
+                    🔬 Civic Problem Research
+                </li>
+
+                <li>
+                    📊 Civic Data Analytics
+                </li>
+
+                <li>
+                    🧪 Research Projects
+                </li>
+
+                <li>
+                    👨‍🎓 Student Innovation
+                </li>
+
+                <li>
+                    📄 Research Reports
+                </li>
+
+            </ul>
+
+            <button
+                class="portal-btn"
+                onclick="openUniversity()">
+
+                University Login →
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             COMPANY / INDUSTRY PORTAL
+        ================================================== -->
+
+        <div class="portal-card company-card">
+            <a href="/company.html"</a>
+
+            <div class="portal-icon">
+                🏢
+            </div>
+
+            <div class="portal-tag">
+                INDUSTRY PARTNER
+            </div>
+
+            <h3>
+                Company Innovation Portal
+            </h3>
+
+            <p>
+                Companies can collaborate with NAGRIX and
+                universities to convert civic challenges
+                into scalable technology solutions.
+            </p>
+
+            <ul>
+
+                <li>
+                    💡 Innovation Challenges
+                </li>
+
+                <li>
+                    🤝 University Collaboration
+                </li>
+
+                <li>
+                    🛠️ Solution Development
+                </li>
+
+                <li>
+                    🚀 Pilot Projects
+                </li>
+
+                <li>
+                    📈 Impact Analytics
+                </li>
+
+            </ul>
+
+            <button
+                class="portal-btn"
+                onclick="openCompany()">
+
+                Industry Login →
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COLLABORATION MODEL
+===================================================== -->
+
+<section
+    id="collaboration"
+    class="collaboration-section">
+
+    <div class="section-heading">
+
+        <span>
+            NAGRIX COLLABORATION
+        </span>
+
+        <h2>
+            From Civic Problem To
+            <span>Innovation</span>
+        </h2>
+
+        <p>
+            NAGRIX creates a collaboration bridge between
+            citizens, government, universities and industries.
+        </p>
+
+    </div>
+
+
+    <div class="collaboration-flow">
+
+
+        <div class="collab-box">
+
+            <div class="collab-icon">
+                👥
+            </div>
+
+            <h3>
+                Citizen
+            </h3>
+
+            <p>
+                Reports a real-world civic problem
+                with evidence and location.
+            </p>
+
+        </div>
+
+
+        <div class="collab-arrow">
+            →
+        </div>
+
+
+        <div class="collab-box">
+
+            <div class="collab-icon">
+                🏛️
+            </div>
+
+            <h3>
+                Government
+            </h3>
+
+            <p>
+                Resolves the complaint and provides
+                verified resolution data.
+            </p>
+
+        </div>
+
+
+        <div class="collab-arrow">
+            →
+        </div>
+
+
+        <div class="collab-box">
+
+            <div class="collab-icon">
+                🎓
+            </div>
+
+            <h3>
+                University
+            </h3>
+
+            <p>
+                Studies repeated problems and develops
+                research-based solutions.
+            </p>
+
+        </div>
+
+
+        <div class="collab-arrow">
+            →
+        </div>
+
+
+        <div class="collab-box">
+
+            <div class="collab-icon">
+                🏢
+            </div>
+
+            <h3>
+                Industry
+            </h3>
+
+            <p>
+                Converts research into practical
+                technology and deployable solutions.
+            </p>
+
+        </div>
+
+
+        <div class="collab-arrow">
+            →
+        </div>
+
+
+        <div class="collab-box solution-box">
+
+            <div class="collab-icon">
+                🚀
+            </div>
+
+            <h3>
+                Smart Solution
+            </h3>
+
+            <p>
+                Solution is piloted, measured and
+                scaled for civic impact.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WORKFLOW
+===================================================== -->
+
+<section
+    id="workflow"
+    class="workflow-section">
+
+    <div class="section-heading">
+
+        <span>
+            NAGRIX PROCESS
+        </span>
+
+        <h2>
+            From Problem To
+            <span>Solution</span>
+        </h2>
+
+    </div>
+
+
+    <div class="workflow">
+
+
+        <div class="workflow-item">
+
+            <b>01</b>
+
+            <h3>
+                Report
+            </h3>
+
+            <p>
+                Citizen reports a civic issue.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-item">
+
+            <b>02</b>
+
+            <h3>
+                Understand
+            </h3>
+
+            <p>
+                AI analyzes the complaint.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-item">
+
+            <b>03</b>
+
+            <h3>
+                Prioritize
+            </h3>
+
+            <p>
+                AI determines urgency.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-item">
+
+            <b>04</b>
+
+            <h3>
+                Route
+            </h3>
+
+            <p>
+                Complaint reaches correct department.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-item">
+
+            <b>05</b>
+
+            <h3>
+                Resolve
+            </h3>
+
+            <p>
+                Officer solves the issue.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-item">
+
+            <b>06</b>
+
+            <h3>
+                Verify
+            </h3>
+
+            <p>
+                Resolution evidence is submitted.
+            </p>
+
+        </div>
+
+
+        <div class="workflow-item">
+
+            <b>07</b>
+
+            <h3>
+                Learn
+            </h3>
+
+            <p>
+                Problem becomes innovation data.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     INNOVATION HUB
+===================================================== -->
+
+<section
+    id="innovation"
+    class="innovation-section">
+
+    <div class="innovation-content">
+
+        <div>
+
+            <div class="section-heading left">
+
+                <span>
+                    NAGRIX FUTURE
+                </span>
+
+                <h2>
+                    Civic Innovation
+                    <span>Hub</span>
+                </h2>
+
+            </div>
+
+
+            <p>
+                NAGRIX does not stop after solving a complaint.
+                Repeated civic problems can become research
+                opportunities for universities and development
+                opportunities for companies.
+            </p>
+
+
+            <!-- INNOVATION FLOW -->
+
+            <div class="innovation-flow">
+
+
+                <div>
+
+                    <span>🎯</span>
+
+                    <strong>
+                        Civic Problem
+                    </strong>
+
+                </div>
+
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+
+                <div>
+
+                    <span>🎓</span>
+
+                    <strong>
+                        University Research
+                    </strong>
+
+                </div>
+
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+
+                <div>
+
+                    <span>🏢</span>
+
+                    <strong>
+                        Industry Development
+                    </strong>
+
+                </div>
+
+
+                <span class="flow-arrow">
+                    →
+                </span>
+
+
+                <div>
+
+                    <span>🚀</span>
+
+                    <strong>
+                        Smart Solution
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="openInnovation()">
+
+                Enter Innovation Hub →
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-logo">
+        NAGRIX
+    </div>
+
+    <p>
+        AI-Powered Civic Intelligence Platform
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#portals">
+            Portals
+        </a>
+
+        <a href="#workflow">
+            Workflow
+        </a>
+
+        <a href="#collaboration">
+            Collaboration
+        </a>
+
+        <a href="#innovation">
+            Innovation
+        </a>
+
+    </div>
+
+
+    <p class="copyright">
+
+        © 2026 NAGRIX.
+        Civic Intelligence for a Better Future.
+
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script
+    type="module"
+    src="firebase-config.js">
+</script>
+
+
+<!-- MAIN JAVASCRIPT -->
+
+<script src="script.js"></script>
+
+
+<!-- =====================================================
+     PORTAL FUNCTIONS
+===================================================== -->
+
+<script>
+
+function openCitizen() {
+
+    window.location.href = "citizen.html";
+
+}
+
+
+function openOfficer() {
+
+    window.location.href = "officer.html";
+
+}
+
+
+function openAdmin() {
+
+    window.location.href = "admin.html";
+
+}
+
+
+function openUniversity() {
+
+    window.location.href = "university.html";
+
+}
+
+
+function openCompany() {
+
+    window.location.href = "company.html";
+
+}
+
+
+function openInnovation() {
+
+    window.location.href = "innovation.html";
+
+}
+
+
+function scrollToPortals() {
+
+    document
+        .getElementById("portals")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+</script>
+
+</body>
+
+</html>
