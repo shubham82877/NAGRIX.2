@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="firebase-config.js"></script>
+<script type="module" src="admin.js"></script>
+
+    <title>NAGRIX | Admin Command Center</title>
+
+    <link rel="stylesheet" href="admin.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!-- ================= LOGIN ================= -->
+
+<section id="loginScreen" class="login-screen">
+
+    <div class="login-card">
+
+        <div class="logo">
+            <span>N</span>
+            NAGRIX
+        </div>
+
+        <div class="admin-badge">
+            ADMIN COMMAND CENTER
+        </div>
+
+        <h1>Secure Admin Login</h1>
+
+        <p>
+            Manage civic operations, officers,
+            departments and innovation partnerships.
+        </p>
+
+        <form id="adminLoginForm">
+
+            <label>Admin Username</label>
+
+            <input
+                type="text"
+                id="adminUsername"
+                placeholder="Enter admin username"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Enter password"
+                required
+            >
+
+            <button type="submit">
+                🔐 Enter Admin Command Center
+            </button>
+
+        </form>
+
+        <div class="demo-login">
+
+            <strong>Demo Admin</strong>
+
+            <br>
+
+            Username:
+            <b>admin001</b>
+
+            <br>
+
+            Password:
+            <b>nagrixadmin</b>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard" class="dashboard hidden">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                N
+            </div>
+
+            <div>
+                <strong>NAGRIX</strong>
+                <small>Admin Command</small>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <button
+                class="nav-item active"
+                data-section="overview"
+            >
+                📊 Dashboard
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="officers"
+            >
+                👮 Officers
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="complaints"
+            >
+                🚨 Complaints
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="departments"
+            >
+                🏢 Departments
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="analytics"
+            >
+                📈 Analytics
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="universities"
+            >
+                🎓 Universities
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="companies"
+            >
+                🏭 Companies
+            </button>
+
+            <button
+                class="nav-item"
+                data-section="research"
+            >
+                🔬 Research Hub
+            </button>
+
+        </nav>
+
+
+        <button
+            id="logoutBtn"
+            class="logout"
+        >
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h2>
+                    NAGRIX Admin Command Center
+                </h2>
+
+                <p>
+                    Civic Intelligence & Operations Control
+                </p>
+
+            </div>
+
+
+            <div class="admin-profile">
+
+                <div class="avatar">
+                    A
+                </div>
+
+                <div>
+
+                    <strong>
+                        NAGRIX Administrator
+                    </strong>
+
+                    <small>
+                        System Administrator
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= OVERVIEW ================= -->
+
+        <section
+            id="overview"
+            class="content-section active-section"
+        >
+
+            <div class="hero">
+
+                <div>
+
+                    <span class="online">
+                        ● SYSTEM OPERATIONAL
+                    </span>
+
+                    <h1>
+                        NAGRIX Civic Operations
+                    </h1>
+
+                    <p>
+                        Monitor complaints, officers,
+                        resolutions and innovation
+                        partnerships from one command center.
+                    </p>
+
+                </div>
+
+                <div class="hero-date">
+                    <span id="currentDate"></span>
+                </div>
+
+            </div>
+
+
+            <!-- KPI -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <span>🚨</span>
+
+                    <div>
+                        <small>Total Complaints</small>
+                        <h2 id="totalComplaints">
+                            2486
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>👮</span>
+
+                    <div>
+                        <small>Total Officers</small>
+                        <h2 id="totalOfficers">
+                            124
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>⏳</span>
+
+                    <div>
+                        <small>Pending</small>
+                        <h2 id="pendingIssues">
+                            326
+                        </h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card success">
+
+                    <span>✅</span>
+
+                    <div>
+                        <small>Resolved</small>
+                        <h2 id="resolvedIssues">
+                            2160
+                        </h2>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- OPERATION GRAPH -->
+
+            <div class="grid-two">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>
+                                NAGRIX Operations
+                            </h3>
+
+                            <p>
+                                Monthly complaint activity
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <canvas id="operationsChart"></canvas>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <h3>
+                        Resolution Rate
+                    </h3>
+
+                    <div class="big-score">
+                        86%
+                    </div>
+
+                    <div class="progress">
+
+                        <div
+                            style="width:86%"
+                        ></div>
+
+                    </div>
+
+                    <p class="muted">
+                        Overall civic issue resolution
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DEPARTMENT PERFORMANCE -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Department Performance
+                        </h3>
+
+                        <p>
+                            Current operational progress
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="departmentPerformance"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= OFFICERS ================= -->
+
+        <section
+            id="officers"
+            class="content-section"
+        >
+
+            <div class="section-title">
+
+                <div>
+
+                    <h1>
+                        Officer Management
+                    </h1>
+
+                    <p>
+                        Create, monitor and manage NAGRIX officers.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="openOfficerModal()"
+                >
+                    + Create Officer
+                </button>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Officer ID</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Area</th>
+                            <th>Solved</th>
+                            <th>Pending</th>
+                            <th>Performance</th>
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="officerTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= COMPLAINTS ================= -->
+
+        <section
+            id="complaints"
+            class="content-section"
+        >
+
+            <div class="section-title">
+
+                <div>
+
+                    <h1>
+                        Complaint Operations
+                    </h1>
+
+                    <p>
+                        Monitor every citizen complaint.
+                    </p>
+
+                </div>
+
+                <input
+                    type="text"
+                    id="complaintSearch"
+                    placeholder="🔍 Search complaint..."
+                >
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Complaint ID</th>
+                            <th>Problem</th>
+                            <th>Department</th>
+                            <th>Location</th>
+                            <th>Officer</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="complaintTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DEPARTMENTS ================= -->
+
+        <section
+            id="departments"
+            class="content-section"
+        >
+
+            <div class="section-title">
+
+                <div>
+
+                    <h1>
+                        Department Operations
+                    </h1>
+
+                    <p>
+                        Monitor department-wise civic work.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="departmentCards"
+                class="department-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- ================= ANALYTICS ================= -->
+
+        <section
+            id="analytics"
+            class="content-section"
+        >
+
+            <div class="section-title">
+
+                <div>
+
+                    <h1>
+                        Performance Analytics
+                    </h1>
+
+                    <p>
+                        Monthly and yearly officer performance.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <span>📅</span>
+
+                    <div>
+
+                        <small>
+                            Monthly Average
+                        </small>
+
+                        <h2>
+                            18.4
+                        </h2>
+
+                        <small>
+                            Issues / Officer
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>📆</span>
+
+                    <div>
+
+                        <small>
+                            Yearly Average
+                        </small>
+
+                        <h2>
+                            221
+                        </h2>
+
+                        <small>
+                            Issues / Officer
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card success">
+
+                    <span>🏆</span>
+
+                    <div>
+
+                        <small>
+                            Resolution Rate
+                        </small>
+
+                        <h2>
+                            86%
+                        </h2>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <h3>
+                    Officer Solved vs Not Solved
+                </h3>
+
+                <canvas
+                    id="officerPerformanceChart"
+                ></canvas>
+
+            </div>
+
+
+            <div class="panel">
+
+                <h3>
+                    Yearly Operations
+                </h3>
+
+                <canvas
+                    id="yearlyChart"
+                ></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= UNIVERSITIES ================= -->
+
+        <section
+            id="universities"
+            class="content-section"
+        >
+
+            <div class="section-title">
+
+                <div>
+
+                    <h1>
+                        University Collaboration
+                    </h1>
+
+                    <p>
+                        Connect civic problems with
+                        universities for research.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="openUniversityModal()"
+                >
+                    + Add University
+                </button>
+
+            </div>
+
+
+            <div
+                id="universityList"
+                class="partner-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- ================= COMPANIES ================= -->
+
+        <section
+            id="companies"
+            class="content-section"
+        >
+
+            <div class="section-title">
+
+                <div>
+
+                    <h1>
+                        Industry Collaboration
+                    </h1>
+
+                    <p>
+                        Connect civic problems with
+                        companies for development.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="openCompanyModal()"
+                >
+                    + Add Company
+                </button>
+
+            </div>
+
+
+            <div
+                id="companyList"
+                class="partner-grid"
+            ></div>
+
+        </section>
+
+
+        <!-- ================= RESEARCH ================= -->
+
+        <section
+            id="research"
+            class="content-section"
+        >
+
+            <div class="section-title">
+
+                <div>
+
+                    <h1>
+                        NAGRIX Research & Innovation Hub
+                    </h1>
+
+                    <p>
+                        Convert real civic problems into
+                        research and development projects.
+                    </p>
+
+                </div>
+
+                <button
+                    class="primary-btn"
+                    onclick="openResearchModal()"
+                >
+                    + Create Research Project
+                </button>
+
+            </div>
+
+
+            <!-- PIPELINE -->
+
+            <div class="pipeline">
+
+                <div class="pipeline-step active">
+                    <span>1</span>
+                    <strong>Citizen Problem</strong>
+                </div>
+
+                <div class="pipeline-line"></div>
+
+                <div class="pipeline-step">
+                    <span>2</span>
+                    <strong>University Research</strong>
+                </div>
+
+                <div class="pipeline-line"></div>
+
+                <div class="pipeline-step">
+                    <span>3</span>
+                    <strong>Company Development</strong>
+                </div>
+
+                <div class="pipeline-line"></div>
+
+                <div class="pipeline-step">
+                    <span>4</span>
+                    <strong>Prototype</strong>
+                </div>
+
+                <div class="pipeline-line"></div>
+
+                <div class="pipeline-step">
+                    <span>5</span>
+                    <strong>Real Deployment</strong>
+                </div>
+
+            </div>
+
+
+            <div
+                id="researchProjects"
+                class="research-grid"
+            ></div>
+
+        </section>
+
+    </main>
+
+</section>
+
+
+<!-- ================= OFFICER MODAL ================= -->
+
+<div
+    id="officerModal"
+    class="modal hidden"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeModal('officerModal')"
+        >
+            ×
+        </button>
+
+        <h2>
+            Create New Officer
+        </h2>
+
+        <form id="officerForm">
+
+            <label>Officer Name</label>
+
+            <input
+                id="newOfficerName"
+                required
+            >
+
+            <label>Username</label>
+
+            <input
+                id="newOfficerUsername"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="newOfficerPassword"
+                required
+            >
+
+            <label>Department</label>
+
+            <select id="newOfficerDepartment">
+
+                <option>
+                    Municipal Corporation
+                </option>
+
+                <option>
+                    Public Works Department
+                </option>
+
+                <option>
+                    Electrical Department
+                </option>
+
+                <option>
+                    Sanitation Department
+                </option>
+
+                <option>
+                    Water Department
+                </option>
+
+                <option>
+                    Transport Department
+                </option>
+
+            </select>
+
+            <label>Working Area</label>
+
+            <input
+                id="newOfficerArea"
+                placeholder="Area / Zone"
+                required
+            >
+
+            <button
+                class="primary-btn full"
+                type="submit"
+            >
+                Create Officer
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= UNIVERSITY MODAL ================= -->
+
+<div
+    id="universityModal"
+    class="modal hidden"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeModal('universityModal')"
+        >
+            ×
+        </button>
+
+        <h2>
+            Add University Partner
+        </h2>
+
+        <form id="universityForm">
+
+            <label>University Name</label>
+
+            <input
+                id="universityName"
+                required
+            >
+
+            <label>Research Department</label>
+
+            <input
+                id="universityDepartment"
+                placeholder="AI / Civil / Environment..."
+                required
+            >
+
+            <label>Research Focus</label>
+
+            <textarea
+                id="universityFocus"
+                required
+            ></textarea>
+
+            <button
+                class="primary-btn full"
+                type="submit"
+            >
+                Add University
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= COMPANY MODAL ================= -->
+
+<div
+    id="companyModal"
+    class="modal hidden"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeModal('companyModal')"
+        >
+            ×
+        </button>
+
+        <h2>
+            Add Industry Partner
+        </h2>
+
+        <form id="companyForm">
+
+            <label>Company Name</label>
+
+            <input
+                id="companyName"
+                required
+            >
+
+            <label>Technology Area</label>
+
+            <input
+                id="companyTechnology"
+                placeholder="IoT / AI / Robotics..."
+                required
+            >
+
+            <label>Development Capability</label>
+
+            <textarea
+                id="companyCapability"
+                required
+            ></textarea>
+
+            <button
+                class="primary-btn full"
+                type="submit"
+            >
+                Add Company
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- ================= RESEARCH MODAL ================= -->
+
+<div
+    id="researchModal"
+    class="modal hidden"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeModal('researchModal')"
+        >
+            ×
+        </button>
+
+        <h2>
+            Create Research Project
+        </h2>
+
+        <form id="researchForm">
+
+            <label>Problem</label>
+
+            <input
+                id="researchProblem"
+                placeholder="Select / enter civic problem"
+                required
+            >
+
+            <label>University Partner</label>
+
+            <select id="researchUniversity">
+
+                <option>
+                    IIT Delhi
+                </option>
+
+                <option>
+                    Delhi University
+                </option>
+
+                <option>
+                    NIT Delhi
+                </option>
+
+            </select>
+
+            <label>Industry Partner</label>
+
+            <select id="researchCompany">
+
+                <option>
+                    Tech Innovation Partner
+                </option>
+
+                <option>
+                    Smart Infrastructure Company
+                </option>
+
+                <option>
+                    AI Solutions Company
+                </option>
+
+            </select>
+
+            <label>Research Objective</label>
+
+            <textarea
+                id="researchObjective"
+                required
+            ></textarea>
+
+            <button
+                class="primary-btn full"
+                type="submit"
+            >
+                🚀 Create Research Project
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="admin.js"></script>
+
+</body>
+</html>
