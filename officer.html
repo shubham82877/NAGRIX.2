@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="firebase-config.js"></script>
+<script type="module" src="officer.js"></script>
+
+    <title>NAGRIX | Officer Command Center</title>
+
+    <link rel="stylesheet" href="officer.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!-- LOGIN SCREEN -->
+<section id="loginScreen" class="login-screen">
+
+    <div class="login-card">
+
+        <div class="logo">
+            <span>N</span>
+            NAGRIX
+        </div>
+
+        <h1>Officer Portal</h1>
+
+        <p>
+            Secure Civic Operations Command Center
+        </p>
+
+        <form id="officerLoginForm">
+
+            <label>Officer Username</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter username"
+                required
+            >
+
+            <label>Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                required
+            >
+
+            <button type="submit">
+                🔐 Login to Command Center
+            </button>
+
+        </form>
+
+        <div class="demo-login">
+            <strong>Demo Login</strong>
+            <br>
+            Username: officer001
+            <br>
+            Password: nagrix123
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- OFFICER DASHBOARD -->
+<section id="dashboard" class="dashboard hidden">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-logo">N</div>
+
+            <div>
+                <strong>NAGRIX</strong>
+                <small>Officer Command</small>
+            </div>
+        </div>
+
+        <nav>
+
+            <button class="nav-item active" data-section="overview">
+                📊 Overview
+            </button>
+
+            <button class="nav-item" data-section="complaints">
+                🚨 Citizen Complaints
+            </button>
+
+            <button class="nav-item" data-section="map">
+                📍 Live Location
+            </button>
+
+            <button class="nav-item" data-section="performance">
+                📈 Performance
+            </button>
+
+            <button class="nav-item" data-section="profile">
+                👤 Officer Profile
+            </button>
+
+        </nav>
+
+        <button id="logoutBtn" class="logout">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+                <h2>Officer Command Center</h2>
+                <p>
+                    Monitor, resolve and verify civic issues
+                </p>
+            </div>
+
+            <div class="officer-mini">
+
+                <div class="avatar">
+                    O
+                </div>
+
+                <div>
+                    <strong id="topOfficerName">
+                        Officer Raj
+                    </strong>
+
+                    <small>
+                        Municipal Department
+                    </small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- OVERVIEW -->
+
+        <section id="overview" class="content-section active-section">
+
+            <div class="welcome-box">
+
+                <div>
+
+                    <span class="status-dot"></span>
+
+                    <span>Officer Online</span>
+
+                    <h1>
+                        Welcome back, Officer
+                    </h1>
+
+                    <p>
+                        Here is today's civic operation summary.
+                    </p>
+
+                </div>
+
+                <div class="date">
+                    <span id="currentDate"></span>
+                </div>
+
+            </div>
+
+
+            <!-- KPI CARDS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>📥</span>
+
+                    <div>
+                        <small>Total Complaints</small>
+                        <h2 id="totalComplaints">24</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <span>⏳</span>
+
+                    <div>
+                        <small>Pending</small>
+                        <h2 id="pendingComplaints">08</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <span>🔧</span>
+
+                    <div>
+                        <small>In Progress</small>
+                        <h2 id="progressComplaints">05</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card success">
+                    <span>✅</span>
+
+                    <div>
+                        <small>Resolved</small>
+                        <h2 id="resolvedComplaints">11</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- PERFORMANCE -->
+
+            <div class="grid-two">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h3>Monthly Working Performance</h3>
+                            <p>Issues handled by this officer</p>
+                        </div>
+
+                    </div>
+
+                    <canvas id="monthlyChart"></canvas>
+
+                </div>
+
+
+                <div class="panel performance-score">
+
+                    <h3>Resolution Performance</h3>
+
+                    <div class="score-circle">
+                        <strong>86%</strong>
+                        <span>Efficiency</span>
+                    </div>
+
+                    <div class="progress-row">
+
+                        <span>Resolved</span>
+
+                        <div class="progress">
+                            <div style="width:86%"></div>
+                        </div>
+
+                        <strong>86%</strong>
+
+                    </div>
+
+
+                    <div class="progress-row">
+
+                        <span>Pending</span>
+
+                        <div class="progress">
+                            <div style="width:14%"></div>
+                        </div>
+
+                        <strong>14%</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECENT COMPLAINTS -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h3>Recent Citizen Complaints</h3>
+                        <p>Latest assigned issues</p>
+                    </div>
+
+                    <button
+                        class="view-btn"
+                        data-section="complaints"
+                    >
+                        View All
+                    </button>
+
+                </div>
+
+                <div id="recentComplaints"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMPLAINTS -->
+
+        <section
+            id="complaints"
+            class="content-section"
+        >
+
+            <div class="section-title">
+
+                <div>
+                    <h1>Citizen Complaints</h1>
+
+                    <p>
+                        Review and resolve assigned civic problems.
+                    </p>
+                </div>
+
+                <input
+                    type="text"
+                    id="searchComplaint"
+                    placeholder="🔍 Search Complaint ID..."
+                >
+
+            </div>
+
+
+            <div id="complaintList" class="complaint-grid"></div>
+
+        </section>
+
+
+        <!-- MAP -->
+
+        <section
+            id="map"
+            class="content-section"
+        >
+
+            <div class="section-title">
+
+                <div>
+                    <h1>Live Complaint Locations</h1>
+
+                    <p>
+                        Citizen GPS locations and verified addresses.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="map-container">
+
+                <div id="officerMap">
+
+                    <div class="map-placeholder">
+
+                        📍
+
+                        <h2>Live GPS Map</h2>
+
+                        <p>
+                            Citizen complaint locations will appear here.
+                        </p>
+
+                        <button onclick="openComplaintLocation()">
+                            Open Location
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PERFORMANCE -->
+
+        <section
+            id="performance"
+            class="content-section"
+        >
+
+            <div class="section-title">
+
+                <div>
+                    <h1>Officer Performance</h1>
+
+                    <p>
+                        Monthly and yearly working analytics.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <span>📅</span>
+
+                    <div>
+                        <small>Monthly Average</small>
+                        <h2>18</h2>
+                        <small>Issues / Month</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <span>📆</span>
+
+                    <div>
+                        <small>Yearly Average</small>
+                        <h2>214</h2>
+                        <small>Issues / Year</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card success">
+
+                    <span>🏆</span>
+
+                    <div>
+                        <small>Success Rate</small>
+                        <h2>86%</h2>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <h3>
+                    Issues Solved vs Not Solved
+                </h3>
+
+                <canvas id="performanceChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+
+        <section
+            id="profile"
+            class="content-section"
+        >
+
+            <div class="section-title">
+
+                <div>
+                    <h1>Officer Profile</h1>
+
+                    <p>
+                        Your NAGRIX operational identity.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="profile-card">
+
+                <div class="profile-avatar">
+                    O
+                </div>
+
+                <div class="profile-info">
+
+                    <h2 id="profileName">
+                        Officer Raj
+                    </h2>
+
+                    <p>
+                        Officer ID:
+                        <strong>NGRX-OFF-001</strong>
+                    </p>
+
+                    <p>
+                        Department:
+                        <strong>Municipal Corporation</strong>
+                    </p>
+
+                    <p>
+                        Area:
+                        <strong>Delhi Central Zone</strong>
+                    </p>
+
+                    <p>
+                        Status:
+                        <strong class="online">
+                            ● Active
+                        </strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</section>
+
+
+<!-- COMPLAINT DETAIL MODAL -->
+
+<div
+    id="complaintModal"
+    class="modal hidden"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeComplaintModal()"
+        >
+            ×
+        </button>
+
+        <h2 id="modalComplaintTitle">
+            Complaint Details
+        </h2>
+
+
+        <div class="complaint-detail">
+
+            <div class="detail-row">
+                <strong>Complaint ID</strong>
+                <span id="modalComplaintId"></span>
+            </div>
+
+            <div class="detail-row">
+                <strong>Problem</strong>
+                <span id="modalProblem"></span>
+            </div>
+
+            <div class="detail-row">
+                <strong>Department</strong>
+                <span id="modalDepartment"></span>
+            </div>
+
+            <div class="detail-row">
+                <strong>Priority</strong>
+                <span id="modalPriority"></span>
+            </div>
+
+            <div class="detail-row">
+                <strong>GPS Address</strong>
+                <span id="modalAddress"></span>
+            </div>
+
+            <div class="detail-row">
+                <strong>Citizen Description</strong>
+                <p id="modalDescription"></p>
+            </div>
+
+        </div>
+
+
+        <!-- CITIZEN EVIDENCE -->
+
+        <div class="evidence-section">
+
+            <h3>Citizen Evidence</h3>
+
+            <div class="evidence-photo">
+
+                <div class="fake-photo">
+                    📷
+                    <span>
+                        Citizen Photo
+                    </span>
+                </div>
+
+            </div>
+
+            <p class="camera-note">
+                Citizen evidence captured through device camera.
+            </p>
+
+        </div>
+
+
+        <!-- RESOLUTION -->
+
+        <div class="resolution-section">
+
+            <h3>Resolution Evidence</h3>
+
+            <p>
+                Officer must capture/upload resolution
+                evidence before marking the complaint as
+                completed.
+            </p>
+
+
+            <div class="camera-box">
+
+                <video
+                    id="resolutionVideo"
+                    autoplay
+                    playsinline
+                ></video>
+
+                <canvas
+                    id="resolutionCanvas"
+                    class="hidden"
+                ></canvas>
+
+                <button
+                    onclick="startOfficerCamera()"
+                >
+                    📷 Open Camera
+                </button>
+
+                <button
+                    onclick="captureResolutionPhoto()"
+                >
+                    Capture Resolution Photo
+                </button>
+
+            </div>
+
+
+            <img
+                id="resolutionPreview"
+                class="resolution-preview hidden"
+            >
+
+
+            <div class="resolution-actions">
+
+                <button
+                    class="complete-btn"
+                    onclick="completeComplaint()"
+                >
+                    ✅ Mark as Completed
+                </button>
+
+                <button
+                    class="pending-btn"
+                    onclick="keepPending()"
+                >
+                    ⏳ Keep Not Completed
+                </button>
+
+            </div>
+
+            <p
+                id="resolutionMessage"
+                class="resolution-message"
+            ></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="officer.js"></script>
+
+</body>
+</html>
